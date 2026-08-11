@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AutoMaster | Mecânica Sem Mistério</title>
+
+    <meta name="description" content="Aprenda mecânica automotiva de forma simples e prática com o AutoMaster. Acesso completo por apenas R$ 49,99.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #080808;
+            color: white;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(8,8,8,0.95);
+            border-bottom: 1px solid #252525;
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: auto;
+            padding: 18px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #ff6a00;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #ddd;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff6a00;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 50% 40%, rgba(255,106,0,0.18), transparent 35%),
+                linear-gradient(135deg, #090909, #111);
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,106,0,0.15);
+            animation: pulse 4s infinite;
+        }
+
+        @keyframes pulse {
+            0%,100% {
+                transform: scale(0.9);
+                opacity: .3;
+            }
+
+            50% {
+                transform: scale(1.1);
+                opacity: .8;
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 850px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 18px;
+            border: 1px solid #ff6a00;
+            color: #ff6a00;
+            border-radius: 30px;
+            margin-bottom: 25px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 76px);
+            line-height: 1;
+            margin-bottom: 25px;
+            font-weight: 900;
+        }
+
+        .hero h1 span {
+            color: #ff6a00;
+        }
+
+        .hero p {
+            color: #bbb;
+            font-size: 19px;
+            max-width: 700px;
+            margin: 0 auto 35px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: .3s;
+        }
+
+        .btn-primary {
+            background: #ff6a00;
+            color: white;
+            box-shadow: 0 0 25px rgba(255,106,0,.25);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            background: #ff7b1a;
+        }
+
+        .btn-secondary {
+            border: 1px solid #444;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            border-color: #ff6a00;
+            color: #ff6a00;
+        }
+
+        /* SECTIONS */
+
+        section {
+            padding: 90px 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+
+        .section-title h2 span {
+            color: #ff6a00;
+        }
+
+        .section-title p {
+            color: #999;
+        }
+
+        /* BENEFITS */
+
+        .benefits {
+            background: #0e0e0e;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: #151515;
+            border: 1px solid #272727;
+            border-radius: 14px;
+            padding: 30px;
+            transition: .3s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            border-color: #ff6a00;
+        }
+
+        .icon {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            font-size: 21px;
+        }
+
+        .card p {
+            color: #999;
+        }
+
+        /* EBOOKS */
+
+        .ebooks {
+            background: #080808;
+        }
+
+        .ebook-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 20px;
+        }
+
+        .ebook {
+            min-height: 260px;
+            padding: 30px;
+            border-radius: 14px;
+            background: linear-gradient(145deg,#191919,#0d0d0d);
+            border: 1px solid #292929;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ebook::after {
+            content: "📖";
+            position: absolute;
+            right: 20px;
+            bottom: 10px;
+            font-size: 80px;
+            opacity: .08;
+        }
+
+        .ebook-number {
+            color: #ff6a00;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .ebook h3 {
+            font-size: 24px;
+            margin: 15px 0;
+        }
+
+        .ebook p {
+            color: #999;
+        }
+
+        /* OFFER */
+
+        .offer {
+            background:
+                radial-gradient(circle at center, rgba(255,106,0,.15), transparent 50%),
+                #101010;
+        }
+
+        .offer-box {
+            max-width: 750px;
+            margin: auto;
+            text-align: center;
+            padding: 55px 30px;
+            border-radius: 20px;
+            border: 1px solid #ff6a00;
+            background: #111;
+            box-shadow: 0 0 50px rgba(255,106,0,.1);
+        }
+
+        .offer-box h2 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .offer-box h2 span {
+            color: #ff6a00;
+        }
+
+        .old-price {
+            color: #777;
+            text-decoration: line-through;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .price {
+            font-size: 65px;
+            font-weight: 900;
+            color: white;
+            margin: 5px 0 20px;
+        }
+
+        .price small {
+            font-size: 22px;
+            color: #ff6a00;
+        }
+
+        .offer-list {
+            list-style: none;
+            text-align: left;
+            max-width: 450px;
+            margin: 25px auto;
+        }
+
+        .offer-list li {
+            padding: 8px 0;
+            color: #ddd;
+        }
+
+        .offer-list li::before {
+            content: "✓";
+            color: #ff6a00;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .buy-button {
+            display: block;
+            width: 100%;
+            max-width: 450px;
+            margin: 25px auto 10px;
+            padding: 18px;
+            background: #ff6a00;
+            color: white;
+            text-decoration: none;
+            border-radius: 9px;
+            font-size: 19px;
+            font-weight: bold;
+            transition: .3s;
+        }
+
+        .buy-button:hover {
+            transform: scale(1.02);
+            background: #ff791a;
+        }
+
+        .secure {
+            color: #777;
+            font-size: 13px;
+        }
+
+        /* TESTIMONIALS */
+
+        .testimonials {
+            background: #0e0e0e;
+        }
+
+        .testimonial {
+            padding: 30px;
+            background: #151515;
+            border-radius: 14px;
+            border: 1px solid #272727;
+        }
+
+        .stars {
+            color: #ff6a00;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .testimonial p {
+            color: #bbb;
+            margin-bottom: 15px;
+        }
+
+        .testimonial strong {
+            color: white;
+        }
+
+        /* CTA */
+
+        .cta {
+            text-align: center;
+            background: #080808;
+        }
+
+        .cta h2 {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            color: #999;
+            margin-bottom: 30px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid #222;
+            background: #050505;
+        }
+
+        footer .logo {
+            margin-bottom: 10px;
+        }
+
+        footer p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* WHATSAPP */
+
+        .whatsapp {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #25d366;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 30px;
+            z-index: 999;
+            box-shadow: 0 5px 25px rgba(0,0,0,.4);
+            transition: .3s;
+        }
+
+        .whatsapp:hover {
+            transform: scale(1.1);
+        }
+
+        /* MOBILE */
+
+        @media(max-width: 800px) {
+
+            nav ul {
+                display: none;
+            }
+
+            .cards,
+            .ebook-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                min-height: 600px;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .section-title h2 {
+                font-size: 32px;
+            }
+
+            .offer-box h2 {
+                font-size: 32px;
+            }
+
+            .price {
+                font-size: 55px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <div class="logo">
+            AUTO<span>MASTER</span>
+        </div>
+
+        <ul>
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#beneficios">Benefícios</a></li>
+            <li><a href="#ebooks">E-books</a></li>
+            <li><a href="#oferta">Comprar</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- HERO -->
+
+<section class="hero" id="inicio">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            🔧 MECÂNICA SEM MISTÉRIO
+        </div>
+
+        <h1>
+            Aprenda mecânica.<br>
+            <span>Domine seu carro.</span>
+        </h1>
+
+        <p>
+            Tenha acesso a conteúdos práticos, e-books e conhecimentos
+            essenciais para entender melhor a mecânica automotiva.
+        </p>
+
+        <div class="buttons">
+
+            <a href="#oferta" class="btn btn-primary">
+                🚀 QUERO APRENDER
+            </a>
+
+            <a href="#ebooks" class="btn btn-secondary">
+                📚 VER E-BOOKS
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- BENEFÍCIOS -->
+
+<section class="benefits" id="beneficios">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                Por que escolher o <span>AutoMaster?</span>
+            </h2>
+
+            <p>
+                Conhecimento automotivo de forma simples e objetiva.
+            </p>
+
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <div class="icon">🔧</div>
+
+                <h3>
+                    Conteúdo Prático
+                </h3>
+
+                <p>
+                    Aprenda conceitos importantes da mecânica
+                    automotiva de maneira simples e direta.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">📚</div>
+
+                <h3>
+                    E-books Exclusivos
+                </h3>
+
+                <p>
+                    Materiais organizados para você estudar
+                    quando e onde quiser.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">🚗</div>
+
+                <h3>
+                    Conheça seu carro
+                </h3>
+
+                <p>
+                    Entenda melhor os principais componentes
+                    e sistemas presentes em um veículo.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- EBOOKS -->
+
+<section class="ebooks" id="ebooks">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                Biblioteca <span>AutoMaster</span>
+            </h2>
+
+            <p>
+                Conteúdos para aumentar seus conhecimentos automotivos.
+            </p>
+
+        </div>
+
+
+        <div class="ebook-grid">
+
+            <div class="ebook">
+
+                <span class="ebook-number">
+                    E-BOOK 01
+                </span>
+
+                <h3>
+                    Mecânica Básica
+                </h3>
+
+                <p>
+                    Conheça os principais conceitos da mecânica
+                    e os componentes fundamentais de um veículo.
+                </p>
+
+            </div>
+
+
+            <div class="ebook">
+
+                <span class="ebook-number">
+                    E-BOOK 02
+                </span>
+
+                <h3>
+                    Sistema de Freios
+                </h3>
+
+                <p>
+                    Entenda os principais componentes do sistema
+                    de frenagem e sua importância.
+                </p>
+
+            </div>
+
+
+            <div class="ebook">
+
+                <span class="ebook-number">
+                    E-BOOK 03
+                </span>
+
+                <h3>
+                    Motor Automotivo
+                </h3>
+
+                <p>
+                    Aprenda como funcionam os principais sistemas
+                    presentes no motor de um veículo.
+                </p>
+
+            </div>
+
+
+            <div class="ebook">
+
+                <span class="ebook-number">
+                    E-BOOK 04
+                </span>
+
+                <h3>
+                    Diagnóstico Automotivo
+                </h3>
+
+                <p>
+                    Aprenda conceitos básicos para identificar
+                    problemas e entender sinais do veículo.
+                </p>
+
+            </div>
+
+
+            <div class="ebook">
+
+                <span class="ebook-number">
+                    E-BOOK 05
+                </span>
+
+                <h3>
+                    Elétrica Automotiva
+                </h3>
+
+                <p>
+                    Conheça os fundamentos da parte elétrica
+                    dos veículos modernos.
+                </p>
+
+            </div>
+
+
+            <div class="ebook">
+
+                <span class="ebook-number">
+                    E-BOOK 06
+                </span>
+
+                <h3>
+                    Manutenção Preventiva
+                </h3>
+
+                <p>
+                    Aprenda a importância das revisões e dos
+                    cuidados preventivos com o veículo.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- OFERTA -->
+
+<section class="offer" id="oferta">
+
+    <div class="container">
+
+        <div class="offer-box">
+
+            <h2>
+                Acesso ao <span>AutoMaster</span>
+            </h2>
+
+            <p>
+                Tenha acesso ao conteúdo completo por um único pagamento.
+            </p>
+
+            <div class="price">
+                R$ 49<small>,99</small>
+            </div>
+
+            <ul class="offer-list">
+
+                <li>
+                    Acesso ao conteúdo AutoMaster
+                </li>
+
+                <li>
+                    E-books de mecânica automotiva
+                </li>
+
+                <li>
+                    Conteúdo organizado para estudo
+                </li>
+
+                <li>
+                    Acesso pelo computador ou celular
+                </li>
+
+                <li>
+                    Pagamento seguro pela Kiwify
+                </li>
+
+            </ul>
+
+
+            <!-- LINK DA KIWIFY -->
+
+            <a
+                href="https://pay.kiwify.com.br/iq2ek75"
+                target="_blank"
+                class="buy-button"
+            >
+                💳 COMPRAR AGORA POR R$ 49,99
+            </a>
+
+            <div class="secure">
+                🔒 Pagamento processado com segurança pela Kiwify
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- DEPOIMENTOS -->
+
+<section class="testimonials">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                Quem aprende, <span>evolui.</span>
+            </h2>
+
+        </div>
+
+
+        <div class="cards">
+
+            <div class="testimonial">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <p>
+                    "O conteúdo é muito mais fácil de entender
+                    do que ficar procurando informações aleatórias."
+                </p>
+
+                <strong>
+                    — Aluno AutoMaster
+                </strong>
+
+            </div>
+
+
+            <div class="testimonial">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <p>
+                    "Gostei da forma como os assuntos são
+                    organizados. Facilita bastante o aprendizado."
+                </p>
+
+                <strong>
+                    — Aluno AutoMaster
+                </strong>
+
+            </div>
+
+
+            <div class="testimonial">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <p>
+                    "Uma ótima opção para quem quer começar
+                    a entender mais sobre carros e mecânica."
+                </p>
+
+                <strong>
+                    — Aluno AutoMaster
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="cta">
+
+    <div class="container">
+
+        <h2>
+            Pronto para começar?
+        </h2>
+
+        <p>
+            Comece agora sua jornada pelo mundo da mecânica automotiva.
+        </p>
+
+        <a
+            href="https://pay.kiwify.com.br/iq2ek75"
+            target="_blank"
+            class="btn btn-primary"
+        >
+            🚀 ACESSAR AUTOMASTER
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="logo">
+        AUTO<span>MASTER</span>
+    </div>
+
+    <p>
+        © 2026 AutoMaster — Mecânica sem Mistério.
+    </p>
+
+    <p>
+        Conteúdo educacional sobre mecânica automotiva.
+    </p>
+
+</footer>
+
+
+<!-- WHATSAPP -->
+
+<a
+    class="whatsapp"
+    href="https://wa.me/5541933008620?text=Olá!%20Tenho%20interesse%20no%20AutoMaster."
+    target="_blank"
+    title="Falar pelo WhatsApp"
+>
+    ☎
+</a>
+
+
+</body>
+</html>
